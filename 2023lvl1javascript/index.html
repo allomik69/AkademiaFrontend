@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 relative">
+    <div class="flex flex-row">
+        <div class="rounded-lg bg-black text-white h-96 w-1/5 flex flex-col items-center ml-5  text-center mt-5">
+            <h1 class="text-4xl mt-5">Pravidlá hry:</h1>
+            <p class="mt-5"> 1. Kameň poráža nožnice (kameň vyhráva). <br>
+                2. Nožnice porážajú papier (nožnice vyhrávajú). <br>
+                3. Papier poráža kameň (papier vyhráva). <br>
+            </p>
+            <p class="mt-10">
+                Hráči si vyberú jeden z týchto troch objektov a <br> porovnajú svoje voľby, aby zistili výsledok. <br>Je
+                to
+                rýchla a
+                jednoduchá hra, <br> kde jeden z objektov vždy vyhráva nad druhými dvoma.
+            </p>
+        </div>
+        <div class="absolute inset-0 flex justify-center items-center">
+            <button id="playButton" class="bg-black text-white rounded-lg pt-2 pb-2 pr-10 pl-10 shadow">Play</button>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
