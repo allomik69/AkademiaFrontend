@@ -1,5 +1,9 @@
 let winScore = 0;
 let round = 0;
+let counter = {};
+counter.k = 0;
+counter.n = 0;
+counter.p = 0;
 
 function score() {
     winScore++
@@ -26,6 +30,8 @@ document.getElementById("playButton").onclick = () => {
 };
 const determineWinner = (user, computer) => {
     let result = "";
+    let history = [];
+
     switch (true) {
         case (computer === "nožničky" && user === "K"):
         case (computer === "kameň" && user === "P"):
@@ -44,7 +50,20 @@ const determineWinner = (user, computer) => {
             result = "Pehral si!";
             break;
     }
+    if (user === "K") {
+        counter.k++;
+    }
+    else if (user === "N") {
+        counter.n++;
+    }
+    else if (user === "P") {
+        counter.p++;
+    }
     alert(`${result} Počítač si zvolil: ${computer}`);
     console.log("Skóre je: " + winScore);
     console.log(result === "Pehral si!" ? "kolo vyhral počítač." : result === "Vyhral si!" ? "kolo vyhral hráč." : "bola remíza.");
+    history.push(result === "Pehral si!" ? "kolo vyhral počítač." : result === "Vyhral si!" ? "kolo vyhral hráč." : "bola remíza.");
+    console.log(history);
+    console.log(counter);
 };
+
