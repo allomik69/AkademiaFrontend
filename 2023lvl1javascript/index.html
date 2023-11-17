@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <title>Document</title>
+    <script src="https://cdn.tailwindcss.com/"></script>
 </head>
 
-<body class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 relative">
+<body class="bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 relative">
     <div class="flex flex-row">
         <div class="rounded-lg bg-black text-white h-96 w-1/5 flex flex-col items-center ml-5  text-center mt-5">
             <h1 class="text-4xl mt-5">Pravidlá hry:</h1>
@@ -23,8 +23,26 @@
                 jednoduchá hra, <br> kde jeden z objektov vždy vyhráva nad druhými dvoma.
             </p>
         </div>
-        <div class="absolute inset-0 flex justify-center items-center flex-col">
+        <div class="absolute inset-0 flex justify-center items-center flex-col z-10">
+            
             <button id="playButton" class="bg-black text-white rounded-lg pt-2 pb-2 pr-10 pl-10 shadow">Play</button>
+        </div>
+        <div class=" absolute inset-0 flex justify-top items-center flex-col ">
+            <div class="flex flex-row">
+                <div class="mt-5 bg-black text-white rounded-lg pt-5 pb-5 pr-10 pl-10 mr-5 flex-row flex items-center">
+                    <h1> počítač : </h1>
+                    <p class=" ml-2 text-lg" id="displayPcScore"> </p>
+                </div>
+                <div class="mt-5 bg-black text-white rounded-lg pt-5 pb-5 pr-10 pl-10 ml-5 flex-row flex items-center">
+                    <h1> hráč : </h1>
+                    <p class=" ml-2 text-lg" id="displayUserScore"> </p>
+                </div>
+            </div>
+        </div>
+        <div class=" absolute inset-0 flex justify-center items-end flex-col">
+            <div class="rounded-lg bg-black text-white w-1/5 h-[24rem] flex flex-col items-center mr-5  text-center mt-5 z-9 ">
+                <p class="pt-5 text-lg " id="displayHistory"></p>
+            </div>
         </div>
     </div>
     <script src="main.js"></script>
