@@ -7,13 +7,13 @@ let counter = {
     p: 0
 }
 let history = []
+const options = ["N", "K", "P"]
+const validOptions = ["K", "P", "N"]
 
 document.getElementById("playButton").onclick = () => {
 
-    const options = ["nožničky", "kameň", "papier"]
     const computerChoice = options[Math.floor(Math.random() * 3)]
-    const validOptions = ["K", "P", "N"]
-
+   
     if (round === 0) 
     {
         alert("hra sa začína! rozhodni sa, či toto kolo použiješ nožničky, kameň alebo papier.")
@@ -45,47 +45,76 @@ function determineWinner(user, computer)
     let result = ""
 
     switch (true) {
-        case (computer === "nožničky" && user === "K"):
-        case (computer === "kameň" && user === "P"):
-        case (computer === "papier" && user === "N"):
+        case (computer === "N" && user === "K"):
+        case (computer === "K" && user === "P"):
+        case (computer === "P" && user === "N"):
             result = "Vyhral si!"
             userScore++
             break
-        case (computer === "kameň" && user === "K"):
-        case (computer === "papier" && user === "P"):
-        case (computer === "nožničky" && user === "N"):
+        case (computer === "K" && user === "K"):
+        case (computer === "P" && user === "P"):
+        case (computer === "N" && user === "N"):
             result = "remíza!"
             break
-        case (computer === "papier" && user === "K"):
-        case (computer === "nožničky" && user === "P"):
-        case (computer === "kameň" && user === "N"):
+        case (computer === "P" && user === "K"):
+        case (computer === "N" && user === "P"):
+        case (computer === "K" && user === "N"):
             pcScore++
             result = "Pehral si!"
             break
     }
-
-    if (user === "K") 
-    {
-        counter.k++
-    }
-    else if (user === "N") 
-    {
-        counter.n++
-    }
-    else if (user === "P") 
-    {
-        counter.p++
+    switch (user) {
+        case "K":
+            counter.k++;
+            break;
+        case "N":
+            counter.n++;
+            break;
+        case "P":
+            counter.p++;
+            break;
     }
     alert(`${result} Počítač si zvolil: ${computer}`)
 
     console.clear()
 
-    history.push(result === "Pehral si!" ? " kolo vyhral počítač " : result === "Vyhral si!" ? " kolo vyhral hráč " : " bola remíza ")
-    let displayHistory = history.join('<br>')
-    document.getElementById("displayHistory").innerHTML = displayHistory
+    history.push(result === "Pehral si!" ? " kolo vyhral počítač " + "\n" : result === "Vyhral si!" ? " kolo vyhral hráč " + "\n" : " bola remíza" + "\n");
+    document.getElementById("displayHistory").innerHTML = history;
+
 
     console.log(counter)
     
     document.getElementById("displayUserScore").innerHTML = userScore 
     document.getElementById("displayPcScore").innerHTML = pcScore 
+
+    if (userScore == 5 )
+    {    
+        // counter = {
+        //     k: 0,
+        //     n: 0,
+        //     p: 0
+        // }
+        // history = []
+        // round = 0
+        // pcScore = 0
+        // userScore = 0
+        alert("Hra skončila. Vyhral si!")
+        // neviem ci je ok ak to takto zjednodusim , pre istotu je vyssie kod bez reloadu.
+        location.reload();
+    } 
+    else if (pcScore == 5 )
+    {
+        // counter = {
+        //     k: 0,
+        //     n: 0,
+        //     p: 0
+        // }
+        // history = []
+        // round = 0
+        // pcScore = 0
+        // userScore = 0
+        alert("Hra skončila. Vyhral počítač!")
+        // neviem ci je ok ak to takto zjednodusim , pre istotu je vyssie kod bez reloadu.
+        location.reload();
+    }
 }
