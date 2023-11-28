@@ -29,7 +29,7 @@ document.getElementById("playButton").onclick = () => {
     let userChoice;
     do {
     userChoice = prompt("napíš ktorý objekt si si zvolil (K, P alebo N):")
-    } while (!validOptions.includes(userChoice.toUpperCase()));
+    } while (!validOptions.includes(userChoice.toUpperCase()))
 
     
 
